@@ -7,401 +7,161 @@
 <title>PathFinder AI | Career Guidance</title>
 
 <style>
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
-
-body {
-  font-family: Arial, sans-serif;
-  background: #f7f5ff;
-  color: #25213c;
-  line-height: 1.6;
-}
-
-header {
-  background: white;
-  padding: 16px 6%;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  gap: 15px;
-  flex-wrap: wrap;
-  box-shadow: 0 2px 12px #24105010;
-}
-
-.logo {
-  color: #6d45d9;
-  font-size: 23px;
-  font-weight: bold;
-}
-
-nav {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 8px;
-}
-
-button, nav button {
-  border: none;
-  cursor: pointer;
-  border-radius: 9px;
-  padding: 11px 15px;
-  font-size: 14px;
-  background: #eee8ff;
-  color: #5632b4;
-}
-
-button:hover, nav button:hover {
-  opacity: .85;
-}
-
-.primary {
-  background: #7048df;
-  color: white;
-}
-
-.page {
-  display: none;
-  max-width: 1100px;
-  margin: auto;
-  padding: 55px 22px;
-}
-
-.page.active {
-  display: block;
-}
-
-.hero {
-  background: linear-gradient(135deg, #7048df, #a38af7);
-  color: white;
-  padding: 55px 30px;
-  border-radius: 22px;
-  text-align: center;
-}
-
-.hero h1 {
-  font-size: clamp(30px, 5vw, 48px);
-  line-height: 1.2;
-  margin-bottom: 18px;
-}
-
-.hero p {
-  max-width: 650px;
-  margin: 0 auto 24px;
-}
-
-h2 {
-  margin-bottom: 15px;
-  color: #49308f;
-}
-
-.section-title {
-  margin: 35px 0 18px;
-}
-
-.grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
-  gap: 18px;
-  margin-top: 22px;
-}
-
-.card {
-  background: white;
-  padding: 23px;
-  border-radius: 16px;
-  box-shadow: 0 5px 22px #28114c0b;
-  border: 1px solid #eee8ff;
-}
-
-.card h3 {
-  color: #5636b1;
-  margin-bottom: 10px;
-}
-
-.icon {
-  font-size: 35px;
-  margin-bottom: 10px;
-}
-
-form {
-  max-width: 560px;
-  margin: 25px auto;
-  background: white;
-  padding: 28px;
-  border-radius: 18px;
-  box-shadow: 0 5px 22px #28114c10;
-}
-
-label {
-  display: block;
-  font-weight: bold;
-  margin: 15px 0 6px;
-}
-
-input, select {
-  width: 100%;
-  padding: 12px;
-  border: 1px solid #d8d0ee;
-  border-radius: 9px;
-  background: white;
-  font-size: 15px;
-}
-
-form button {
-  margin-top: 20px;
-  width: 100%;
-}
-
-.result {
-  margin-top: 25px;
-}
-
-.mentor-img {
-  width: 75px;
-  height: 75px;
-  border-radius: 50%;
-  display: grid;
-  place-items: center;
-  background: #eee8ff;
-  font-size: 38px;
-  margin-bottom: 14px;
-}
-
-.note {
-  color: #6a657a;
-  font-size: 13px;
-  margin-top: 12px;
-}
-
-footer {
-  padding: 25px;
-  text-align: center;
-  background: #21183b;
-  color: white;
-  margin-top: 40px;
-}
-
-#loginPage {
-  min-height: 85vh;
-  display: none;
-  align-items: center;
-  justify-content: center;
-  padding: 25px;
-}
-
-#loginPage.active {
-  display: flex;
-}
-
-#loginPage form {
-  width: 100%;
-}
-
-@media(max-width:600px) {
-  header { justify-content: center; }
-  nav { justify-content: center; }
-  .hero { padding: 40px 20px; }
-  .page { padding: 30px 16px; }
-}
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:Arial,sans-serif;background:#f7f5ff;color:#25213c;line-height:1.6}
+header{background:white;padding:16px 5%;display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap;box-shadow:0 2px 12px #24105010}
+.logo{color:#7048df;font-size:23px;font-weight:bold}
+nav{display:flex;gap:7px;flex-wrap:wrap}
+button{border:0;cursor:pointer;border-radius:9px;padding:11px 15px;font-size:14px;background:#eee8ff;color:#5632b4}
+button:hover{opacity:.85}
+.primary{background:#7048df;color:white}
+.green{background:#16815d;color:white}
+.page{display:none;max-width:1100px;margin:auto;padding:35px 20px}
+.page.active{display:block}
+#auth{min-height:100vh;display:flex;align-items:center;justify-content:center;padding:20px}
+#auth form{width:100%;max-width:500px}
+.hero{background:linear-gradient(135deg,#7048df,#a38af7);color:white;padding:48px 25px;border-radius:22px;text-align:center}
+.hero h1{font-size:clamp(28px,5vw,45px);line-height:1.2;margin-bottom:16px}
+.hero p{margin:0 auto 20px;max-width:650px}
+h2{color:#49308f;margin-bottom:14px}
+h3{color:#5636b1;margin-bottom:9px}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:18px;margin-top:20px}
+.card,form{background:white;padding:23px;border-radius:16px;box-shadow:0 5px 22px #28114c0b;border:1px solid #eee8ff}
+form{max-width:600px;margin:22px auto}
+label{display:block;font-weight:bold;margin:13px 0 5px}
+input,select,textarea{width:100%;padding:12px;border:1px solid #d8d0ee;border-radius:9px;font-size:15px;background:white;color:#25213c}
+form button{margin-top:18px}
+.full{width:100%}
+.note{font-size:13px;color:#706a80;margin-top:12px}
+.icon{font-size:32px;margin-bottom:10px}
+.tag{display:inline-block;background:#eee8ff;color:#5632b4;padding:4px 10px;border-radius:20px;font-size:12px;margin:4px 3px 4px 0}
+.section-title{margin-top:28px}
+.stats{background:white;padding:18px;border-radius:13px;text-align:center;border:1px solid #eee8ff}
+.stats strong{font-size:25px;color:#7048df;display:block}
+footer{background:#21183b;color:white;text-align:center;padding:22px;margin-top:35px}
+.hidden{display:none!important}
+ul{padding-left:22px}
+hr{border:0;border-top:1px solid #eee;margin:18px 0}
+@media(max-width:600px){header{justify-content:center}nav{justify-content:center}.page{padding:25px 14px}.hero{padding:35px 17px}}
 </style>
 </head>
 
 <body>
 
-<!-- LOGIN -->
-<section id="loginPage" class="active">
-  <form id="loginForm">
-    <div class="logo">✦ PathFinder AI</div>
-    <h2 style="margin-top:20px">Welcome back!</h2>
-    <p>Sign in to explore your career possibilities.</p>
+<!-- LOGIN AND REGISTRATION -->
+<section id="auth">
+<form id="authForm">
+  <div class="logo">✦ PathFinder AI</div>
+  <h2 style="margin-top:18px">Find your path. Build your future.</h2>
+  <p id="authDescription">Choose how you want to use PathFinder AI.</p>
+
+  <label for="role">I am a</label>
+  <select id="role" required>
+    <option value="student">Student</option>
+    <option value="mentor">Mentor</option>
+  </select>
+
+  <label for="mode">Account option</label>
+  <select id="mode">
+    <option value="register">Create a new account</option>
+    <option value="login">Login to existing account</option>
+  </select>
+
+  <div id="registerFields">
+    <label for="name">Full name</label>
+    <input id="name" placeholder="Enter your full name" required>
 
     <label for="email">Email address</label>
     <input id="email" type="email" placeholder="you@example.com" required>
 
     <label for="password">Password</label>
-    <input id="password" type="password"
-           placeholder="Enter password" required minlength="6">
+    <input id="password" type="password" minlength="6"
+           placeholder="At least 6 characters" required>
 
-    <button class="primary" type="submit">Login</button>
-    <p class="note">
-      Demo login only. For this prototype, the form checks your
-      details but does not create a secure account.
-    </p>
-  </form>
+    <!-- STUDENT DETAILS -->
+    <div id="studentFields">
+      <label for="education">Current education level</label>
+      <select id="education">
+        <option value="After 10th">After 10th</option>
+        <option value="After 12th">After 12th</option>
+        <option value="Diploma">Diploma</option>
+        <option value="Undergraduate">Undergraduate</option>
+        <option value="Postgraduate">Postgraduate</option>
+      </select>
+
+      <label for="studentField">Career interest</label>
+      <select id="studentField">
+        <option value="technology">Technology</option>
+        <option value="healthcare">Healthcare</option>
+        <option value="business">Business and Finance</option>
+        <option value="creative">Creative Careers</option>
+        <option value="science">Science and Research</option>
+        <option value="government">Public Service</option>
+      </select>
+
+      <label for="skill">Strongest skill</label>
+      <select id="skill">
+        <option>Problem Solving</option>
+        <option>Communication</option>
+        <option>Creativity</option>
+        <option>Analytical Thinking</option>
+        <option>Helping People</option>
+      </select>
+
+      <label for="goal">Career goal</label>
+      <input id="goal" placeholder="e.g. Software Engineer">
+    </div>
+
+    <!-- MENTOR DETAILS -->
+    <div id="mentorFields" class="hidden">
+      <label for="expertise">Area of expertise</label>
+      <select id="expertise">
+        <option value="technology">Technology</option>
+        <option value="healthcare">Healthcare</option>
+        <option value="business">Business and Finance</option>
+        <option value="creative">Creative Careers</option>
+        <option value="science">Science and Research</option>
+        <option value="government">Public Service</option>
+      </select>
+
+      <label for="qualification">Qualification</label>
+      <input id="qualification" placeholder="e.g. B.Tech, MBA" required>
+
+      <label for="experience">Experience</label>
+      <select id="experience">
+        <option>Student / Aspiring Mentor</option>
+        <option>Less than 1 year</option>
+        <option>1–3 years</option>
+        <option>4–7 years</option>
+        <option>8+ years</option>
+      </select>
+
+      <label for="bio">About you</label>
+      <textarea id="bio" rows="3"
+        placeholder="Describe your skills and the guidance you can offer"></textarea>
+    </div>
+  </div>
+
+  <button class="primary full" id="submitButton" type="submit">
+    Create Account
+  </button>
+
+  <p id="authMessage" class="note" role="status"></p>
+  <p class="note">
+    Prototype only: account data is stored in this browser.
+    Do not enter real passwords or sensitive personal information.
+  </p>
+</form>
 </section>
 
-<!-- WEBSITE -->
-<div id="website" style="display:none">
-
+<!-- MAIN WEBSITE -->
+<div id="app" class="hidden">
 <header>
   <div class="logo">✦ PathFinder AI</div>
-  <nav>
-    <button onclick="showPage('home')">Home</button>
-    <button onclick="showPage('features')">Features</button>
-    <button onclick="showPage('assessment')">Career Assessment</button>
-    <button onclick="showPage('how')">How It Works</button>
-    <button onclick="showPage('mentors')">Find a Mentor</button>
-    <button onclick="logout()">Logout</button>
-  </nav>
+  <nav id="navigation"></nav>
 </header>
 
-<!-- HOME -->
-<main id="home" class="page active">
-  <section class="hero">
-    <h1>Discover Your Future with PathFinder AI</h1>
-    <p>
-      Explore careers that match your interests, skills and goals.
-      Find the right courses, understand career pathways and discover
-      mentors who can guide you.
-    </p>
-    <button class="primary" onclick="showPage('assessment')">
-      Find My Career Path →
-    </button>
-    <button onclick="showPage('mentors')">Explore Mentors</button>
-  </section>
-
-  <h2 class="section-title">Your future, your pathway</h2>
-  <div class="grid">
-    <article class="card">
-      <div class="icon">🎯</div>
-      <h3>Career Discovery</h3>
-      <p>Explore career options according to your interests and strengths.</p>
-    </article>
-    <article class="card">
-      <div class="icon">🛤️</div>
-      <h3>Learning Pathways</h3>
-      <p>Understand courses, qualifications and important next steps.</p>
-    </article>
-    <article class="card">
-      <div class="icon">🤝</div>
-      <h3>Career Mentors</h3>
-      <p>Explore mentor categories relevant to your selected career.</p>
-    </article>
-  </div>
-</main>
-
-<!-- FEATURES -->
-<main id="features" class="page">
-  <h2>Website Features</h2>
-  <p>Tools to help students make informed career decisions.</p>
-
-  <div class="grid">
-    <article class="card">
-      <div class="icon">🧠</div>
-      <h3>Personalized Suggestions</h3>
-      <p>Match your answers with suitable career categories.</p>
-    </article>
-    <article class="card">
-      <div class="icon">📚</div>
-      <h3>Course Guidance</h3>
-      <p>Explore possible courses and qualifications for your goal.</p>
-    </article>
-    <article class="card">
-      <div class="icon">📝</div>
-      <h3>Career Assessment</h3>
-      <p>Share your education level, favourite subjects and interests.</p>
-    </article>
-    <article class="card">
-      <div class="icon">👩‍🏫</div>
-      <h3>Mentor Discovery</h3>
-      <p>Browse mentor profiles by career field.</p>
-    </article>
-  </div>
-</main>
-
-<!-- CAREER ASSESSMENT -->
-<main id="assessment" class="page">
-  <h2>Career Assessment</h2>
-  <p>Answer these questions to explore possible career pathways.</p>
-
-  <form id="careerForm">
-    <label for="level">Current education level</label>
-    <select id="level" required>
-      <option value="">Choose education level</option>
-      <option>After 10th</option>
-      <option>After 12th</option>
-      <option>Diploma</option>
-      <option>Undergraduate</option>
-    </select>
-
-    <label for="interest">Main interest</label>
-    <select id="interest" required>
-      <option value="">Choose your interest</option>
-      <option value="technology">Computers and Technology</option>
-      <option value="healthcare">Biology and Healthcare</option>
-      <option value="business">Business and Finance</option>
-      <option value="creative">Art and Creativity</option>
-      <option value="science">Science and Research</option>
-      <option value="government">Public Service</option>
-    </select>
-
-    <label for="strength">Your strongest skill</label>
-    <select id="strength" required>
-      <option value="">Choose your skill</option>
-      <option>Problem Solving</option>
-      <option>Communication</option>
-      <option>Creativity</option>
-      <option>Analytical Thinking</option>
-      <option>Helping People</option>
-    </select>
-
-    <label for="goal">Career goal</label>
-    <input id="goal" placeholder="e.g. Software Engineer, Doctor">
-
-    <button class="primary" type="submit">Find My Pathway</button>
-  </form>
-
-  <div id="results" class="result"></div>
-</main>
-
-<!-- HOW IT WORKS -->
-<main id="how" class="page">
-  <h2>How PathFinder AI Works</h2>
-  <div class="grid">
-    <article class="card">
-      <h3>Step 1: Enter Details</h3>
-      <p>Choose your education level and share your interests.</p>
-    </article>
-    <article class="card">
-      <h3>Step 2: Analyse Answers</h3>
-      <p>The prototype matches your answers with career categories.</p>
-    </article>
-    <article class="card">
-      <h3>Step 3: Explore Careers</h3>
-      <p>Review career options, possible courses and next steps.</p>
-    </article>
-    <article class="card">
-      <h3>Step 4: Find Guidance</h3>
-      <p>Explore mentor categories and plan your next step.</p>
-    </article>
-  </div>
-</main>
-
-<!-- MENTORS -->
-<main id="mentors" class="page">
-  <h2>Find Your Career Mentor</h2>
-  <p>Explore mentor categories based on your preferred career pathway.</p>
-
-  <label for="mentorFilter">Filter by career field</label>
-  <select id="mentorFilter" onchange="filterMentors()">
-    <option value="all">All fields</option>
-    <option value="technology">Technology</option>
-    <option value="healthcare">Healthcare</option>
-    <option value="business">Business</option>
-    <option value="creative">Creative Careers</option>
-    <option value="science">Science and Research</option>
-    <option value="government">Public Service</option>
-  </select>
-
-  <div class="grid" id="mentorGrid"></div>
-  <p class="note">
-    These are sample mentor categories, not verified real individuals.
-    Mentor requests are demo interactions and are not sent to anyone.
-  </p>
-</main>
+<main id="dashboard" class="page active"></main>
 
 <footer>
   <p>© 2026 PathFinder AI | Explore. Learn. Grow.</p>
@@ -410,188 +170,615 @@ footer {
 </div>
 
 <script>
-const pages = ["home", "features", "assessment", "how", "mentors"];
+const $ = id => document.getElementById(id);
 
-function showPage(pageId) {
-  document.getElementById("loginPage").classList.remove("active");
-  document.getElementById("website").style.display = "block";
-
-  pages.forEach(id => {
-    document.getElementById(id).classList.toggle("active", id === pageId);
-  });
-
-  window.scrollTo({ top: 0, behavior: "smooth" });
-}
-
-document.getElementById("loginForm").addEventListener("submit", function(e) {
-  e.preventDefault();
-
-  const email = document.getElementById("email").value.trim();
-  if (!email) return;
-
-  // Demo only: this does not verify a real account.
-  document.getElementById("loginPage").classList.remove("active");
-  document.getElementById("website").style.display = "block";
-  showPage("home");
-});
-
-function logout() {
-  document.getElementById("website").style.display = "none";
-  pages.forEach(id => document.getElementById(id).classList.remove("active"));
-  document.getElementById("loginPage").classList.add("active");
-  document.getElementById("password").value = "";
-  window.scrollTo(0, 0);
-}
-
-const careers = {
+const fields = {
   technology: {
     title: "Technology and Computing",
-    options: ["Software Developer", "AI / ML Engineer", "Data Analyst"],
-    pathway: "After 10th: MPC or a suitable diploma. After 12th: explore B.Tech CSE/IT, BCA or other relevant programs. Build projects and programming skills."
+    careers: ["Software Developer", "AI / ML Engineer", "Data Analyst"],
+    pathway: "Explore B.Tech CSE/IT, BCA or relevant programs. Practise programming, build projects and learn databases and software development."
   },
   healthcare: {
     title: "Healthcare and Life Sciences",
-    options: ["Doctor", "Nursing Professional", "Allied Health Professional"],
-    pathway: "Choose the relevant science subjects. Investigate approved courses, entrance examinations, eligibility and registration requirements for each profession."
+    careers: ["Doctor", "Nursing Professional", "Allied Health Professional"],
+    pathway: "Explore relevant science subjects, approved courses, entrance examinations and qualification requirements for your chosen profession."
   },
   business: {
     title: "Business and Finance",
-    options: ["Accountant", "Business Analyst", "Entrepreneur"],
-    pathway: "Explore commerce, business, economics or related degrees. Develop communication, financial literacy and analytical skills."
+    careers: ["Accountant", "Business Analyst", "Entrepreneur"],
+    pathway: "Explore commerce, finance, economics or management programs. Develop communication, analytical and financial skills."
   },
   creative: {
     title: "Creative Careers",
-    options: ["UI/UX Designer", "Graphic Designer", "Digital Content Creator"],
-    pathway: "Explore design, media or relevant degree/diploma options. Build a portfolio and practise design tools."
+    careers: ["UI/UX Designer", "Graphic Designer", "Digital Content Creator"],
+    pathway: "Explore design, media or relevant courses. Practise design tools and create a portfolio of your work."
   },
   science: {
     title: "Science and Research",
-    options: ["Research Assistant", "Scientist (long-term pathway)", "Lab Professional"],
-    pathway: "Choose appropriate science subjects, then explore relevant bachelor's and postgraduate programs. Requirements vary by research field."
+    careers: ["Research Assistant", "Scientist", "Lab Professional"],
+    pathway: "Explore science degrees and postgraduate programs relevant to your research interests."
   },
   government: {
     title: "Public Service",
-    options: ["Government Exam Candidate", "Public Administration", "Civil Services (long-term pathway)"],
-    pathway: "Check the eligibility, age requirements, qualifications and exam pattern for each specific recruitment or examination."
+    careers: ["Government Exam Candidate", "Public Administration", "Civil Services"],
+    pathway: "Check the eligibility, qualifications and examination pattern for each specific public-service role."
   }
 };
 
-document.getElementById("careerForm").addEventListener("submit", function(e) {
-  e.preventDefault();
+let currentUser = null;
+let currentPage = "dashboard";
 
-  const field = document.getElementById("interest").value;
-  const level = document.getElementById("level").value;
-  const goal = document.getElementById("goal").value.trim();
-  const career = careers[field];
-
-  const result = document.getElementById("results");
-  result.innerHTML = `
-    <div class="card">
-      <h2>Your Career Exploration</h2>
-      <p><strong>Education level:</strong> ${escapeHTML(level)}</p>
-      <p><strong>Interest area:</strong> ${career.title}</p>
-      ${goal ? `<p><strong>Your goal:</strong> ${escapeHTML(goal)}</p>` : ""}
-      <h3 class="section-title">Possible career options</h3>
-      <ul>${career.options.map(x => `<li>${x}</li>`).join("")}</ul>
-      <h3 class="section-title">Possible pathway</h3>
-      <p>${career.pathway}</p>
-      <p class="note">These are rule-based suggestions for exploration, not a validated AI prediction. Check official course and exam requirements before deciding.</p>
-      <button class="primary" onclick="openMatchingMentors('${field}')">Explore Matching Mentors</button>
-    </div>
-  `;
-  result.scrollIntoView({ behavior: "smooth", block: "start" });
-});
-
-function escapeHTML(value) {
-  return value.replace(/[&<>"']/g, char => ({
-    "&": "&amp;", "<": "&lt;", ">": "&gt;",
-    '"': "&quot;", "'": "&#39;"
-  })[char]);
+function getUsers() {
+  try {
+    return JSON.parse(localStorage.getItem("pf_users") || "[]");
+  } catch {
+    return [];
+  }
 }
 
-const mentorCategories = [
-  {
-    field: "technology",
-    icon: "💻",
-    name: "Technology Mentor",
-    expertise: "Software development, AI/ML and data science",
-    guidance: "Projects, programming skills and learning roadmaps"
-  },
-  {
-    field: "healthcare",
-    icon: "🩺",
-    name: "Healthcare Mentor",
-    expertise: "Medicine, nursing and allied health",
-    guidance: "Course options, entrance exams and qualifications"
-  },
-  {
-    field: "business",
-    icon: "📊",
-    name: "Business Mentor",
-    expertise: "Finance, commerce and management",
-    guidance: "Business skills, degree choices and career planning"
-  },
-  {
-    field: "creative",
-    icon: "🎨",
-    name: "Creative Mentor",
-    expertise: "UI/UX, graphic design and digital media",
-    guidance: "Portfolio development and creative pathways"
-  },
-  {
-    field: "science",
-    icon: "🔬",
-    name: "Science Mentor",
-    expertise: "Science, laboratory work and research",
-    guidance: "Subject choices and research study pathways"
-  },
-  {
-    field: "government",
-    icon: "🏛️",
-    name: "Public Service Mentor",
-    expertise: "Government exams and public administration",
-    guidance: "Exam planning, eligibility and study strategies"
-  }
-];
+function saveUsers(users) {
+  localStorage.setItem("pf_users", JSON.stringify(users));
+}
 
-function renderMentors(filter = "all") {
-  const grid = document.getElementById("mentorGrid");
-  const matches = mentorCategories.filter(m =>
-    filter === "all" || m.field === filter
+function safe(text) {
+  return String(text || "").replace(/[&<>"']/g, c => ({
+    "&":"&amp;", "<":"&lt;", ">":"&gt;",
+    '"':"&quot;", "'":"&#39;"
+  })[c]);
+}
+
+function fieldName(key) {
+  return fields[key]?.title || "Career Guidance";
+}
+
+function roleChanged() {
+  const role = $("role").value;
+  const registering = $("mode").value === "register";
+
+  $("registerFields").classList.toggle("hidden", !registering);
+  $("studentFields").classList.toggle(
+    "hidden", !registering || role !== "student"
+  );
+  $("mentorFields").classList.toggle(
+    "hidden", !registering || role !== "mentor"
   );
 
-  grid.innerHTML = matches.map(m => `
+  $("name").required = registering;
+  $("qualification").required = registering && role === "mentor";
+
+  $("submitButton").textContent = registering
+    ? "Create " + (role === "student" ? "Student" : "Mentor") + " Account"
+    : "Login";
+
+  $("authDescription").textContent = registering
+    ? "Create your profile to get started."
+    : "Log in using the email and password for your account.";
+  $("authMessage").textContent = "";
+}
+
+$("role").addEventListener("change", roleChanged);
+$("mode").addEventListener("change", roleChanged);
+
+$("authForm").addEventListener("submit", function(e) {
+  e.preventDefault();
+
+  const role = $("role").value;
+  const mode = $("mode").value;
+  const email = $("email").value.trim().toLowerCase();
+  const password = $("password").value;
+  let users = getUsers();
+
+  if (mode === "register") {
+    if (users.some(u => u.email === email && u.role === role)) {
+      $("authMessage").textContent =
+        "An account with this email and role already exists. Please log in.";
+      return;
+    }
+
+    const user = {
+      id: Date.now().toString() + Math.random().toString(36).slice(2),
+      role,
+      name: $("name").value.trim(),
+      email,
+      // Demo only: never store plain-text passwords in a real application.
+      password,
+      education: role === "student" ? $("education").value : "",
+      interest: role === "student" ? $("studentField").value : "",
+      skill: role === "student" ? $("skill").value : "",
+      goal: role === "student" ? $("goal").value.trim() : "",
+      expertise: role === "mentor" ? $("expertise").value : "",
+      qualification: role === "mentor" ? $("qualification").value.trim() : "",
+      experience: role === "mentor" ? $("experience").value : "",
+      bio: role === "mentor" ? $("bio").value.trim() : ""
+    };
+
+    users.push(user);
+    saveUsers(users);
+    loginUser(user);
+    return;
+  }
+
+  const user = users.find(u =>
+    u.email === email && u.password === password && u.role === role
+  );
+
+  if (!user) {
+    $("authMessage").textContent =
+      "Account not found or details do not match. Check your role and login details.";
+    return;
+  }
+
+  loginUser(user);
+});
+
+function loginUser(user) {
+  currentUser = user;
+  $("auth").classList.add("hidden");
+  $("app").classList.remove("hidden");
+  buildNavigation();
+  showPage("dashboard");
+}
+
+function logout() {
+  currentUser = null;
+  $("app").classList.add("hidden");
+  $("auth").classList.remove("hidden");
+  $("password").value = "";
+  $("authMessage").textContent = "";
+  window.scrollTo(0, 0);
+}
+
+function buildNavigation() {
+  const links = currentUser.role === "student"
+    ? [
+        ["dashboard", "My Dashboard"],
+        ["assessment", "Career Assessment"],
+        ["mentors", "Find Mentors"],
+        ["profile", "My Profile"]
+      ]
+    : [
+        ["dashboard", "Mentor Dashboard"],
+        ["students", "Matching Students"],
+        ["profile", "My Profile"]
+      ];
+
+  $("navigation").innerHTML = links.map(([id, label]) =>
+    `<button onclick="showPage('${id}')">${label}</button>`
+  ).join("") + `<button onclick="logout()">Logout</button>`;
+}
+
+function showPage(page) {
+  currentPage = page;
+  const user = currentUser;
+  if (!user) return;
+
+  const allowed = user.role === "student"
+    ? ["dashboard", "assessment", "mentors", "profile"]
+    : ["dashboard", "students", "profile"];
+
+  if (!allowed.includes(page)) page = "dashboard";
+
+  const root = $("dashboard");
+  root.innerHTML = "";
+  root.classList.add("active");
+
+  if (page === "dashboard") {
+    root.innerHTML = user.role === "student"
+      ? studentDashboard(user)
+      : mentorDashboard(user);
+  } else if (page === "assessment") {
+    root.innerHTML = assessmentPage(user);
+  } else if (page === "mentors") {
+    root.innerHTML = mentorsPage(user);
+  } else if (page === "students") {
+    root.innerHTML = studentsPage(user);
+  } else if (page === "profile") {
+    root.innerHTML = profilePage(user);
+  }
+
+  window.scrollTo({top:0, behavior:"smooth"});
+}
+
+function studentDashboard(user) {
+  const career = fields[user.interest] || fields.technology;
+  const matched = getUsers().filter(m =>
+    m.role === "mentor" && m.expertise === user.interest
+  );
+
+  return `
+    <section class="hero">
+      <h1>Welcome, ${safe(user.name)}!</h1>
+      <p>Your career journey starts here. Explore opportunities,
+      develop your skills and connect with relevant mentors.</p>
+      <button class="primary" onclick="showPage('assessment')">
+        Explore My Career
+      </button>
+      <button onclick="showPage('mentors')">Find My Mentors</button>
+    </section>
+
+    <h2 class="section-title">Your Student Dashboard</h2>
+    <div class="grid">
+      <div class="stats"><strong>${safe(user.education)}</strong>Education</div>
+      <div class="stats"><strong>${matched.length}</strong>Matching mentor profiles</div>
+      <div class="stats"><strong>${career.careers.length}</strong>Career ideas</div>
+    </div>
+
+    <h2 class="section-title">Your recommended career area</h2>
     <article class="card">
-      <div class="mentor-img">${m.icon}</div>
-      <h3>${m.name}</h3>
-      <p><strong>Field:</strong> ${m.expertise}</p>
-      <p><strong>Can help with:</strong> ${m.guidance}</p>
-      <button class="primary" onclick="requestMentorship('${m.field}')">
+      <h3>${safe(career.title)}</h3>
+      <p>${safe(career.pathway)}</p>
+      <p class="section-title"><b>Possible careers</b></p>
+      ${career.careers.map(c => `<span class="tag">${safe(c)}</span>`).join("")}
+      <p class="section-title"><b>Your strongest skill:</b> ${safe(user.skill)}</p>
+      <p><b>Your career goal:</b> ${safe(user.goal || "Not specified")}</p>
+      <button class="primary section-title" onclick="showPage('mentors')">
+        Meet Matching Mentors
+      </button>
+    </article>
+
+    <p class="note">These are exploratory recommendations, not a
+    validated AI prediction. Verify course and career requirements.</p>
+  `;
+}
+
+function mentorDashboard(user) {
+  const students = getUsers().filter(s =>
+    s.role === "student" && s.interest === user.expertise
+  );
+
+  const requests = getRequests().filter(r => r.mentorId === user.id);
+
+  return `
+    <section class="hero">
+      <h1>Welcome, ${safe(user.name)}!</h1>
+      <p>Your mentor dashboard helps you discover students whose
+      career interests match your expertise.</p>
+      <button class="primary" onclick="showPage('students')">
+        Explore Matching Students
+      </button>
+    </section>
+
+    <h2 class="section-title">Your Mentor Dashboard</h2>
+    <div class="grid">
+      <div class="stats"><strong>${safe(user.experience)}</strong>Experience</div>
+      <div class="stats"><strong>${students.length}</strong>Matching students</div>
+      <div class="stats"><strong>${requests.length}</strong>Demo requests received</div>
+    </div>
+
+    <h2 class="section-title">Your mentor profile</h2>
+    <article class="card">
+      <h3>${safe(user.name)}</h3>
+      <p><b>Expertise:</b> ${safe(fieldName(user.expertise))}</p>
+      <p><b>Qualification:</b> ${safe(user.qualification)}</p>
+      <p><b>Experience:</b> ${safe(user.experience)}</p>
+      <p><b>About:</b> ${safe(user.bio || "No description added yet.")}</p>
+      <button class="green section-title" onclick="showPage('profile')">
+        Edit My Profile
+      </button>
+    </article>
+
+    <p class="note">Student profiles are available only when the
+    corresponding profiles exist in this browser's demo data.</p>
+  `;
+}
+
+function assessmentPage(user) {
+  return `
+    <h2>Career Assessment</h2>
+    <p>Update your interests to explore a different career direction.</p>
+    <form onsubmit="updateAssessment(event)">
+      <label for="aEducation">Education level</label>
+      <select id="aEducation">
+        ${["After 10th","After 12th","Diploma","Undergraduate","Postgraduate"]
+          .map(x => `<option ${user.education===x?"selected":""}>${x}</option>`).join("")}
+      </select>
+
+      <label for="aInterest">Main interest</label>
+      <select id="aInterest">
+        ${Object.keys(fields).map(k =>
+          `<option value="${k}" ${user.interest===k?"selected":""}>${safe(fields[k].title)}</option>`
+        ).join("")}
+      </select>
+
+      <label for="aSkill">Strongest skill</label>
+      <select id="aSkill">
+        ${["Problem Solving","Communication","Creativity","Analytical Thinking","Helping People"]
+          .map(x => `<option ${user.skill===x?"selected":""}>${x}</option>`).join("")}
+      </select>
+
+      <label for="aGoal">Career goal</label>
+      <input id="aGoal" value="${safe(user.goal)}" placeholder="Your career goal">
+
+      <button class="primary full">Update My Career Path</button>
+    </form>
+  `;
+}
+
+function updateAssessment(e) {
+  e.preventDefault();
+  const updated = {
+    ...currentUser,
+    education: $("aEducation").value,
+    interest: $("aInterest").value,
+    skill: $("aSkill").value,
+    goal: $("aGoal").value.trim()
+  };
+  updateUser(updated);
+  showPage("dashboard");
+}
+
+function mentorsPage(user) {
+  const mentors = getUsers().filter(m =>
+    m.role === "mentor" &&
+    m.expertise === user.interest
+  );
+
+  return `
+    <h2>Mentors for Your Career Path</h2>
+    <p>Showing mentors matching your interest in
+    <b>${safe(fieldName(user.interest))}</b>.</p>
+
+    <label for="mentorFilter">Choose a career field</label>
+    <select id="mentorFilter" onchange="filterMentorCards()">
+      ${Object.keys(fields).map(k =>
+        `<option value="${k}" ${user.interest===k?"selected":""}>${safe(fields[k].title)}</option>`
+      ).join("")}
+    </select>
+
+    <div id="mentorCards" class="grid">
+      ${mentorCards(mentors)}
+    </div>
+
+    <p class="note">Only mentor accounts registered in this browser
+    are shown. Demo requests do not send emails or notifications.</p>
+  `;
+}
+
+function mentorCards(mentors) {
+  if (!mentors.length) {
+    return `<article class="card">
+      <h3>No matching mentors yet</h3>
+      <p>There are no registered mentor profiles for this field in
+      the current browser. Try another field or add a mentor account.</p>
+    </article>`;
+  }
+
+  return mentors.map(m => `
+    <article class="card">
+      <div class="icon">👩‍🏫</div>
+      <h3>${safe(m.name)}</h3>
+      <p><b>Expertise:</b> ${safe(fieldName(m.expertise))}</p>
+      <p><b>Qualification:</b> ${safe(m.qualification)}</p>
+      <p><b>Experience:</b> ${safe(m.experience)}</p>
+      <p>${safe(m.bio || "Career guidance and learning support.")}</p>
+      <button class="primary section-title"
+        onclick="requestMentorship('${m.id}')">
         Request Mentorship
       </button>
     </article>
   `).join("");
 }
 
-function filterMentors() {
-  renderMentors(document.getElementById("mentorFilter").value);
-}
-
-function openMatchingMentors(field) {
-  document.getElementById("mentorFilter").value = field;
-  renderMentors(field);
-  showPage("mentors");
-}
-
-function requestMentorship(field) {
-  const mentor = mentorCategories.find(m => m.field === field);
-  alert(
-    "Demo request selected for: " + mentor.name +
-    "\nNo real mentor has been contacted. Connect a mentor service to send requests."
+function filterMentorCards() {
+  const field = $("mentorFilter").value;
+  const mentors = getUsers().filter(m =>
+    m.role === "mentor" && m.expertise === field
   );
+  $("mentorCards").innerHTML = mentorCards(mentors);
 }
 
-renderMentors();
+function studentsPage(user) {
+  const students = getUsers().filter(s =>
+    s.role === "student" && s.interest === user.expertise
+  );
+  const requests = getRequests().filter(r => r.mentorId === user.id);
+
+  return `
+    <h2>Students Matching Your Expertise</h2>
+    <p>Students who selected ${safe(fieldName(user.expertise))} as
+    their career interest.</p>
+
+    <label for="studentFilter">Filter by career interest</label>
+    <select id="studentFilter" onchange="filterStudentCards()">
+      ${Object.keys(fields).map(k =>
+        `<option value="${k}" ${user.expertise===k?"selected":""}>${safe(fields[k].title)}</option>`
+      ).join("")}
+    </select>
+
+    <div id="studentCards" class="grid">
+      ${studentCards(students, requests)}
+    </div>
+
+    <h2 class="section-title">Mentorship requests</h2>
+    <div class="grid">
+      ${requests.length ? requests.map(r => {
+        const student = getUsers().find(s =>
+          s.id === r.studentId && s.role === "student"
+        );
+        if (!student) return "";
+        return `<article class="card">
+          <h3>${safe(student.name)}</h3>
+          <p>Interested in ${safe(fieldName(student.interest))}</p>
+          <p>Career goal: ${safe(student.goal || "Not specified")}</p>
+          <p>Status: ${safe(r.status)}</p>
+          <button class="green" onclick="updateRequest('${r.id}','Accepted')">Accept</button>
+          <button onclick="updateRequest('${r.id}','Declined')">Decline</button>
+        </article>`;
+      }).join("") : `<article class="card">
+        No demo requests have been received yet.
+      </article>`}
+    </div>
+  `;
+}
+
+function studentCards(students, requests) {
+  if (!students.length) {
+    return `<article class="card">
+      <h3>No matching student profiles yet</h3>
+      <p>Students who select this career field will appear here
+      when their profiles exist in this browser.</p>
+    </article>`;
+  }
+
+  return students.map(s => {
+    const requested = requests.some(r => r.studentId === s.id);
+    return `<article class="card">
+      <h3>${safe(s.name)}</h3>
+      <p><b>Education:</b> ${safe(s.education)}</p>
+      <p><b>Interest:</b> ${safe(fieldName(s.interest))}</p>
+      <p><b>Strongest skill:</b> ${safe(s.skill)}</p>
+      <p><b>Career goal:</b> ${safe(s.goal || "Not specified")}</p>
+      <p class="note">Student email is not displayed.</p>
+      ${requested ? `<span class="tag">Request received</span>` : ""}
+    </article>`;
+  }).join("");
+}
+
+function filterStudentCards() {
+  const field = $("studentFilter").value;
+  const students = getUsers().filter(s =>
+    s.role === "student" && s.interest === field
+  );
+  const requests = getRequests().filter(r => r.mentorId === currentUser.id);
+  $("studentCards").innerHTML = studentCards(students, requests);
+}
+
+function profilePage(user) {
+  const student = user.role === "student";
+
+  return `
+    <h2>My Profile</h2>
+    <p>Update your details and career preferences.</p>
+
+    <form onsubmit="saveProfile(event)">
+      <label for="pName">Full name</label>
+      <input id="pName" value="${safe(user.name)}" required>
+
+      <label for="pEmail">Email address</label>
+      <input value="${safe(user.email)}" disabled>
+      <p class="note">Email cannot be changed in this demo.</p>
+
+      ${student ? `
+        <label for="pEducation">Education</label>
+        <select id="pEducation">
+          ${["After 10th","After 12th","Diploma","Undergraduate","Postgraduate"]
+            .map(x => `<option ${user.education===x?"selected":""}>${x}</option>`).join("")}
+        </select>
+        <label for="pInterest">Career interest</label>
+        <select id="pInterest">
+          ${Object.keys(fields).map(k =>
+            `<option value="${k}" ${user.interest===k?"selected":""}>${safe(fields[k].title)}</option>`
+          ).join("")}
+        </select>
+        <label for="pSkill">Strongest skill</label>
+        <select id="pSkill">
+          ${["Problem Solving","Communication","Creativity","Analytical Thinking","Helping People"]
+            .map(x => `<option ${user.skill===x?"selected":""}>${x}</option>`).join("")}
+        </select>
+        <label for="pGoal">Career goal</label>
+        <input id="pGoal" value="${safe(user.goal)}">
+      ` : `
+        <label for="pExpertise">Expertise</label>
+        <select id="pExpertise">
+          ${Object.keys(fields).map(k =>
+            `<option value="${k}" ${user.expertise===k?"selected":""}>${safe(fields[k].title)}</option>`
+          ).join("")}
+        </select>
+        <label for="pQualification">Qualification</label>
+        <input id="pQualification" value="${safe(user.qualification)}" required>
+        <label for="pExperience">Experience</label>
+        <select id="pExperience">
+          ${["Student / Aspiring Mentor","Less than 1 year","1–3 years","4–7 years","8+ years"]
+            .map(x => `<option ${user.experience===x?"selected":""}>${x}</option>`).join("")}
+        </select>
+        <label for="pBio">About you</label>
+        <textarea id="pBio" rows="3">${safe(user.bio)}</textarea>
+      `}
+
+      <button class="primary full">Save Profile</button>
+    </form>
+  `;
+}
+
+function saveProfile(e) {
+  e.preventDefault();
+  const user = {...currentUser, name:$("pName").value.trim()};
+
+  if (user.role === "student") {
+    user.education = $("pEducation").value;
+    user.interest = $("pInterest").value;
+    user.skill = $("pSkill").value;
+    user.goal = $("pGoal").value.trim();
+  } else {
+    user.expertise = $("pExpertise").value;
+    user.qualification = $("pQualification").value.trim();
+    user.experience = $("pExperience").value;
+    user.bio = $("pBio").value.trim();
+  }
+
+  updateUser(user);
+  buildNavigation();
+  showPage("dashboard");
+}
+
+function updateUser(updated) {
+  const users = getUsers().map(u =>
+    u.id === updated.id ? updated : u
+  );
+  saveUsers(users);
+  currentUser = updated;
+}
+
+function getRequests() {
+  try {
+    return JSON.parse(localStorage.getItem("pf_requests") || "[]");
+  } catch {
+    return [];
+  }
+}
+
+function saveRequests(requests) {
+  localStorage.setItem("pf_requests", JSON.stringify(requests));
+}
+
+function requestMentorship(mentorId) {
+  const mentor = getUsers().find(u =>
+    u.id === mentorId && u.role === "mentor"
+  );
+  if (!mentor) return;
+
+  const requests = getRequests();
+  const existing = requests.find(r =>
+    r.studentId === currentUser.id && r.mentorId === mentorId
+  );
+
+  if (existing) {
+    alert("You have already requested mentorship from this profile.");
+    return;
+  }
+
+  requests.push({
+    id: Date.now().toString(),
+    studentId: currentUser.id,
+    mentorId,
+    status: "Pending"
+  });
+
+  saveRequests(requests);
+  alert("Demo mentorship request saved. No notification was sent.");
+}
+
+function updateRequest(id, status) {
+  const requests = getRequests().map(r =>
+    r.id === id && r.mentorId === currentUser.id
+      ? {...r, status}
+      : r
+  );
+  saveRequests(requests);
+  showPage("students");
+}
+
+roleChanged();
 </script>
 </body>
 </html>
